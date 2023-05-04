@@ -11,9 +11,9 @@ router.get('/', function(req, res, next) {
 router.post('/verifyjwt', async function (req, res, next){
     console.log("Signing up user...");
     const {jwtToken} = req.body;
-
+    console.log("jwtToken: ", jwtToken)
     // Verifier that expects valid access tokens:
-    if(!jwtToken){
+    if(jwtToken){
         const verifier = CognitoJwtVerifier.create({
             userPoolId: "ap-southeast-2_BJM4uzFdR",
             tokenUse: "access",
